@@ -1,0 +1,40 @@
+{% load static %}
+
+<style>
+    .hello-msg{
+    font-size :18px;
+    color : #fff;
+    margin-right : 20px
+    }
+    .icon{
+            font-size: 28px;
+            animation: size 4s infinite 1s;
+        }
+      .p1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size :250%;
+  color: #FF3399;
+  font-weight: 900;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <i class="p1">Afkhan</i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if requeset.user.is_staff%}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">Products</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+    <span><p class="hello-msg">Hello, {{request.user}}</p></span>
+  <span><p><a class="hello-msg" href="{%url 'logout'%}">Logout</a></p> </span>
+</nav>
